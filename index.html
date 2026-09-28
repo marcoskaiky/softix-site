@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Softix · Desenvolvimento de Software sob Medida</title>
+  <meta name="description" content="A Softix projeta e desenvolve plataformas web, aplicativos, sistemas sob medida e soluções com IA — com engenharia de alto nível e design impecável.">
+  <meta name="theme-color" content="#0a1117">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Softix · Digital Technology">
+  <meta property="og:description" content="Software sob medida que escala: web, mobile, SaaS, cloud e IA.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Oxanium:wght@500;600;700&family=Sora:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- Sprite: logo + ícones de marcas -->
+<svg class="sprite" aria-hidden="true">
+  <symbol id="logo-mark" viewBox="3 3 155 174" fill="currentColor">
+    <path d="M43 20 84 60 34 110 84 160 134 110" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="29" y="6" width="28" height="28" rx="6"/>
+    <rect x="63" y="39" width="42" height="42" rx="8"/>
+    <rect x="6" y="82" width="56" height="56" rx="10"/>
+    <rect x="113" y="89" width="42" height="42" rx="8"/>
+    <rect x="70" y="146" width="28" height="28" rx="6"/>
+  </symbol>
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+<div class="progress" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#top" class="brand" aria-label="Softix Digital Technology — início">
+      <span class="brand__text"><span class="brand__name">SOFTIX</span><span class="brand__tag">Digital Technology</span></span>
+      <svg class="brand__mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+    </a>
+
+    <nav class="nav__menu" id="nav-menu" aria-label="Navegação principal">
+      <ul class="nav__links">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#processo">Processo</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#contato" class="btn btn--primary btn--lg nav__menu-cta">Iniciar projeto <i data-lucide="arrow-right"></i></a>
+    </nav>
+
+    <a href="#contato" class="btn btn--primary btn--sm nav__cta">Iniciar projeto <i data-lucide="arrow-right"></i></a>
+    <button class="nav__toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true">
+      <canvas class="hero__canvas" id="circuit"></canvas>
+      <div class="hero__lines"></div>
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
+    </div>
+
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <a href="#contato" class="pill reveal"><span class="pill__dot"></span>Agenda aberta para novos projetos<i data-lucide="arrow-right"></i></a>
+
+        <h1 class="hero__title reveal" style="--d:.08s">
+          Transformamos ideias em software que
+          <span class="sr-only">escala.</span>
+          <span class="hero__typed" aria-hidden="true"><span class="grad" id="typed" data-words="escala.,vende.,encanta.,automatiza.,inova.">escala.</span></span>
+        </h1>
+
+        <p class="hero__lead reveal" style="--d:.16s">Somos a <strong>Softix</strong>. Projetamos, desenvolvemos e evoluímos plataformas web, aplicativos, sistemas sob medida e soluções com IA — com engenharia de alto nível e design impecável.</p>
+
+        <div class="hero__ctas reveal" style="--d:.24s">
+          <a href="#contato" class="btn btn--primary btn--lg">Iniciar meu projeto <i data-lucide="arrow-right"></i></a>
+          <a href="#projetos" class="btn btn--ghost btn--lg"><i data-lucide="layers"></i>Ver projetos</a>
+        </div>
+
+        <ul class="hero__trust reveal" style="--d:.32s">
+          <li><i data-lucide="circle-check"></i>Código 100% seu</li>
+          <li><i data-lucide="circle-check"></i>Entregas semanais</li>
+          <li><i data-lucide="circle-check"></i>Suporte pós-lançamento</li>
+        </ul>
+      </div>
+
+      <div class="hero__visual reveal" style="--d:.2s" aria-hidden="true">
+        <div class="stage" id="stage">
+          <div class="editor">
+            <div class="editor__bar">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="editor__tabs">
+                <span class="editor__tab is-active"><i data-lucide="file-code"></i>projeto.ts</span>
+                <span class="editor__tab">deploy.yml</span>
+              </span>
+              <span class="editor__branch"><i data-lucide="git-branch"></i>main</span>
+            </div>
+            <div class="editor__body">
+<pre class="editor__gutter">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre>
+<pre class="editor__code"><code id="code"><span class="t-k">import</span> <span class="t-p">{</span> <span class="t-c">Softix</span> <span class="t-p">}</span> <span class="t-k">from</span> <span class="t-s">'@softix/core'</span>
+
+<span class="t-k">const</span> <span class="t-v">app</span> <span class="t-p">=</span> <span class="t-k">await</span> <span class="t-c">Softix</span><span class="t-p">.</span><span class="t-f">create</span><span class="t-p">({</span>
+  <span class="t-v">cliente</span><span class="t-p">:</span> <span class="t-s">'Sua Empresa'</span><span class="t-p">,</span>
+  <span class="t-v">stack</span><span class="t-p">: [</span><span class="t-s">'Next.js'</span><span class="t-p">,</span> <span class="t-s">'Node'</span><span class="t-p">,</span> <span class="t-s">'AWS'</span><span class="t-p">],</span>
+  <span class="t-v">design</span><span class="t-p">:</span> <span class="t-s">'impecável'</span><span class="t-p">,</span>
+  <span class="t-v">foco</span><span class="t-p">:</span> <span class="t-s">'resultado'</span><span class="t-p">,</span>
+<span class="t-p">})</span>
+
+<span class="t-k">await</span> <span class="t-v">app</span><span class="t-p">.</span><span class="t-f">test</span><span class="t-p">()</span>   <span class="t-m">// ✓ 248 testes</span>
+<span class="t-k">await</span> <span class="t-v">app</span><span class="t-p">.</span><span class="t-f">deploy</span><span class="t-p">()</span> <span class="t-m">// ✓ no ar em 42s</span></code></pre>
+            </div>
+            <div class="editor__status"><span class="ok">Pronto</span><span>TypeScript · UTF-8 · 0 erros</span></div>
+          </div>
+
+          <div class="float float--deploy" id="deploy-card">
+            <span class="float__icon"><i data-lucide="rocket"></i></span>
+            <div><strong>Deploy concluído</strong><span>produção · 42s</span></div>
+            <span class="float__ok"><i data-lucide="check"></i></span>
+          </div>
+
+          <div class="float float--score">
+            <span class="ring"><svg viewBox="0 0 44 44"><circle class="bg" cx="22" cy="22" r="19"/><circle class="fg" cx="22" cy="22" r="19"/></svg><b>100</b></span>
+            <div><strong>Performance</strong><span>Lighthouse</span></div>
+          </div>
+
+          <div class="float float--uptime">
+            <div class="float__head"><span>Uptime · 30 dias</span><strong>99,98%</strong></div>
+            <div class="bars"><i style="--h:.55"></i><i style="--h:.7"></i><i style="--h:.62"></i><i style="--h:.85"></i><i style="--h:.74"></i><i style="--h:.9"></i><i style="--h:.66"></i><i style="--h:.8"></i><i style="--h:.95"></i><i style="--h:.72"></i><i style="--h:.88"></i><i style="--h:1"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section class="stack" aria-label="Tecnologias que utilizamos">
+    <p class="stack__label">Stack moderna, escolhida para cada desafio</p>
+    <div class="marquee" data-row="0"></div>
+    <div class="marquee marquee--reverse" data-row="1"></div>
+  </section>
+
+  <!-- ============ SERVIÇOS ============ -->
+  <section class="section" id="servicos">
+    <div class="container">
+      <header class="section-head reveal">
+        <span class="eyebrow">01 · Serviços</span>
+        <h2>Soluções completas, do conceito ao <span class="grad">deploy</span>.</h2>
+        <p>Um time multidisciplinar para tirar o seu produto do papel e fazê-lo crescer — com a tecnologia certa para cada desafio.</p>
+      </header>
+
+      <div class="bento" data-spot>
+        <article class="card card--wide spot reveal">
+          <div class="card__text">
+            <div class="card__icon"><i data-lucide="globe"></i></div>
+            <h3>Plataformas Web</h3>
+            <p>Sites, portais e aplicações web de alta performance — rápidos, acessíveis e otimizados para SEO desde a primeira linha.</p>
+            <ul class="chips"><li>Next.js</li><li>React</li><li>Node.js</li></ul>
+          </div>
+          <div class="mini" aria-hidden="true">
+            <div class="mini__bar"><i></i><i></i><i></i><span>suaempresa.com.br</span></div>
+            <div class="mini__scores">
+              <div><span class="ring"><svg viewBox="0 0 44 44"><circle class="bg" cx="22" cy="22" r="19"/><circle class="fg" cx="22" cy="22" r="19"/></svg><b>100</b></span><small>Performance</small></div>
+              <div><span class="ring"><svg viewBox="0 0 44 44"><circle class="bg" cx="22" cy="22" r="19"/><circle class="fg" cx="22" cy="22" r="19"/></svg><b>100</b></span><small>Acessibilidade</small></div>
+              <div><span class="ring"><svg viewBox="0 0 44 44"><circle class="bg" cx="22" cy="22" r="19"/><circle class="fg" cx="22" cy="22" r="19"/></svg><b>100</b></span><small>Boas práticas</small></div>
+              <div><span class="ring"><svg viewBox="0 0 44 44"><circle class="bg" cx="22" cy="22" r="19"/><circle class="fg" cx="22" cy="22" r="19"/></svg><b>100</b></span><small>SEO</small></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card spot reveal" style="--d:.08s">
+          <div class="card__icon"><i data-lucide="smartphone"></i></div>
+          <h3>Apps Mobile</h3>
+          <p>Aplicativos iOS e Android nativos ou multiplataforma, com experiência fluida e publicação nas lojas.</p>
+          <ul class="chips"><li>Flutter</li><li>React Native</li></ul>
+        </article>
+
+        <article class="card spot reveal" style="--d:.16s">
+          <div class="card__icon"><i data-lucide="layout-dashboard"></i></div>
+          <h3>Sistemas &amp; SaaS</h3>
+          <p>ERPs, CRMs, portais e plataformas multiempresa feitos sob medida para a sua operação.</p>
+          <ul class="chips"><li>NestJS</li><li>PostgreSQL</li></ul>
+        </article>
+
+        <article class="card spot reveal">
+          <div class="card__icon"><i data-lucide="cloud"></i></div>
+          <h3>Cloud &amp; DevOps</h3>
+          <p>Infraestrutura escalável, CI/CD, observabilidade e custos de nuvem sob controle.</p>
+          <ul class="chips"><li>AWS</li><li>Docker</li><li>K8s</li></ul>
+        </article>
+
+        <article class="card card--wide spot reveal" style="--d:.08s">
+          <div class="card__text">
+            <div class="card__icon"><i data-lucide="sparkles"></i></div>
+            <h3>IA &amp; Automação</h3>
+            <p>Assistentes inteligentes, automação de processos e análise de dados com LLMs integrados aos seus sistemas.</p>
+            <ul class="chips"><li>LLMs</li><li>RAG</li><li>Python</li></ul>
+          </div>
+          <div class="chat" aria-hidden="true">
+            <div class="msg msg--user">Quais pedidos atrasaram hoje?</div>
+            <div class="msg msg--bot"><span class="msg__avatar"><svg><use href="#logo-mark"/></svg></span><p>Encontrei <b>12 pedidos</b> atrasados. Já avisei os clientes e abri chamados com a logística.</p></div>
+            <div class="msg msg--bot"><span class="msg__avatar"><svg><use href="#logo-mark"/></svg></span><p class="typing"><i></i><i></i><i></i></p></div>
+          </div>
+        </article>
+
+        <article class="card spot reveal" style="--d:.16s">
+          <div class="card__icon"><i data-lucide="pen-tool"></i></div>
+          <h3>UI/UX Design</h3>
+          <p>Interfaces que encantam, protótipos navegáveis e design systems consistentes.</p>
+          <ul class="chips"><li>Figma</li><li>Design System</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOBRE ============ -->
+  <section class="section section--soft" id="sobre">
+    <div class="container about">
+      <div class="about__intro">
+        <header class="section-head section-head--left reveal">
+          <span class="eyebrow">02 · Por que a Softix</span>
+          <h2>Mais que código: <span class="grad">parceria</span> de verdade.</h2>
+          <p>Somos uma software house focada em construir produtos digitais robustos, escaláveis e bonitos. Unimos engenharia de alto nível, design centrado nas pessoas e comunicação transparente em cada etapa.</p>
+        </header>
+        <!-- Números de exemplo: substitua pelos reais -->
+        <dl class="stats reveal" style="--d:.1s">
+          <div><dt>Projetos entregues</dt><dd data-count="150" data-prefix="+">+150</dd></div>
+          <div><dt>Clientes satisfeitos</dt><dd data-count="98" data-suffix="%">98%</dd></div>
+          <div><dt>Anos de mercado</dt><dd data-count="12">12</dd></div>
+          <div><dt>Monitoramento</dt><dd data-count="24" data-suffix="/7">24/7</dd></div>
+        </dl>
+      </div>
+
+      <div class="features" data-spot>
+        <article class="card feature spot reveal">
+          <div class="card__icon"><i data-lucide="code-xml"></i></div>
+          <h3>Código limpo &amp; testado</h3>
+          <p>Arquitetura sólida, code review e testes automatizados em todas as entregas.</p>
+        </article>
+        <article class="card feature spot reveal" style="--d:.08s">
+          <div class="card__icon"><i data-lucide="eye"></i></div>
+          <h3>Transparência total</h3>
+          <p>Acesso ao board, demos a cada sprint e relatórios claros de progresso.</p>
+        </article>
+        <article class="card feature spot reveal">
+          <div class="card__icon"><i data-lucide="zap"></i></div>
+          <h3>Agilidade real</h3>
+          <p>Squads enxutos e entregas semanais para validar rápido e evoluir sempre.</p>
+        </article>
+        <article class="card feature spot reveal" style="--d:.08s">
+          <div class="card__icon"><i data-lucide="shield-check"></i></div>
+          <h3>Segurança &amp; LGPD</h3>
+          <p>Boas práticas OWASP, criptografia e conformidade com a LGPD desde o dia 1.</p>
+        </article>
+        <article class="card feature spot reveal">
+          <div class="card__icon"><i data-lucide="key-round"></i></div>
+          <h3>Código 100% seu</h3>
+          <p>Você é dono do código e da propriedade intelectual. Sem amarras, sem surpresas.</p>
+        </article>
+        <article class="card feature spot reveal" style="--d:.08s">
+          <div class="card__icon"><i data-lucide="life-buoy"></i></div>
+          <h3>Suporte contínuo</h3>
+          <p>Monitoramento, SLA e evolução do produto muito além do lançamento.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESSO ============ -->
+  <section class="section" id="processo">
+    <div class="container">
+      <header class="section-head reveal">
+        <span class="eyebrow">03 · Processo</span>
+        <h2>Um processo claro, do primeiro café ao <span class="grad">go-live</span>.</h2>
+        <p>Método ágil e previsível: você sabe exatamente o que está sendo feito, quando e por quê.</p>
+      </header>
+
+      <ol class="steps reveal">
+        <li class="step">
+          <span class="step__node">01</span>
+          <h3>Imersão</h3>
+          <p>Entendemos o seu negócio, usuários e objetivos para definir escopo, prioridades e métricas de sucesso.</p>
+          <span class="step__time"><i data-lucide="clock"></i>1–2 semanas</span>
+        </li>
+        <li class="step">
+          <span class="step__node">02</span>
+          <h3>Design</h3>
+          <p>Wireframes, protótipos navegáveis e UI de alto nível validados com você antes do código.</p>
+          <span class="step__time"><i data-lucide="clock"></i>2–3 semanas</span>
+        </li>
+        <li class="step">
+          <span class="step__node">03</span>
+          <h3>Desenvolvimento</h3>
+          <p>Sprints com entregas incrementais, code review e integração contínua a cada funcionalidade.</p>
+          <span class="step__time"><i data-lucide="clock"></i>Sprints de 2 semanas</span>
+        </li>
+        <li class="step">
+          <span class="step__node">04</span>
+          <h3>Qualidade</h3>
+          <p>Testes automatizados, QA, performance e segurança verificados em cada release.</p>
+          <span class="step__time"><i data-lucide="clock"></i>Contínuo</span>
+        </li>
+        <li class="step">
+          <span class="step__node">05</span>
+          <h3>Lançamento</h3>
+          <p>Deploy sem downtime, monitoramento ativo e evolução contínua do produto.</p>
+          <span class="step__time"><i data-lucide="clock"></i>Go-live + suporte</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ PROJETOS ============ -->
+  <section class="section section--soft" id="projetos">
+    <div class="container">
+      <div class="projects__top">
+        <header class="section-head section-head--left reveal">
+          <span class="eyebrow">04 · Portfólio</span>
+          <h2>Projetos que já estão gerando <span class="grad">resultado</span>.</h2>
+        </header>
+        <div class="filters reveal" id="filters" role="group" aria-label="Filtrar projetos por categoria"></div>
+      </div>
+
+      <div class="projects__grid" id="projects-grid" data-spot></div>
+
+      <div class="projects__more" id="gh-more" hidden>
+        <a class="btn btn--ghost" id="gh-profile" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-github"/></svg>Ver todos no GitHub<i data-lucide="arrow-up-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEPOIMENTOS (exemplos: substitua pelos reais) ============ -->
+  <section class="section" id="depoimentos">
+    <div class="container">
+      <header class="section-head reveal">
+        <span class="eyebrow">05 · Depoimentos</span>
+        <h2>Quem constrói com a gente, <span class="grad">recomenda</span>.</h2>
+      </header>
+
+      <div class="quotes" data-spot>
+        <figure class="card quote spot reveal">
+          <div class="quote__stars" aria-label="5 de 5 estrelas"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <blockquote>“A Softix entendeu o nosso negócio como poucos. O CRM que construíram virou o coração da nossa operação comercial.”</blockquote>
+          <figcaption><span class="avatar">MC</span><span><cite>Mariana Costa</cite><small>CEO · Orbit Tecnologia</small></span></figcaption>
+        </figure>
+        <figure class="card quote spot reveal" style="--d:.08s">
+          <div class="quote__stars" aria-label="5 de 5 estrelas"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <blockquote>“Entregas semanais, comunicação impecável e um app com nota 4,8 nas lojas. Superou todas as nossas expectativas.”</blockquote>
+          <figcaption><span class="avatar">RA</span><span><cite>Ricardo Almeida</cite><small>CTO · Nexa Bank</small></span></figcaption>
+        </figure>
+        <figure class="card quote spot reveal" style="--d:.16s">
+          <div class="quote__stars" aria-label="5 de 5 estrelas"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <blockquote>“Reduzimos 35% do custo operacional da frota em poucos meses. Um time técnico de altíssimo nível.”</blockquote>
+          <figcaption><span class="avatar">JR</span><span><cite>Juliana Ramos</cite><small>Diretora de Operações · LogiTrack</small></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section section--soft" id="faq">
+    <div class="container faq">
+      <div class="faq__aside">
+        <header class="section-head section-head--left reveal">
+          <span class="eyebrow">06 · FAQ</span>
+          <h2>Perguntas <span class="grad">frequentes</span>.</h2>
+          <p>Tudo o que você precisa saber antes de começar. Não encontrou sua dúvida?</p>
+        </header>
+        <a class="btn btn--ghost reveal" style="--d:.1s" href="https://wa.me/5511999999999" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Falar com um especialista</a>
+      </div>
+
+      <div class="faq__list">
+        <details class="faq__item reveal" name="faq" open>
+          <summary>Quanto custa desenvolver um software?<span class="faq__icon" aria-hidden="true"></span></summary>
+          <p>Depende do escopo, da complexidade e do prazo. Após uma conversa inicial gratuita, enviamos uma proposta detalhada com escopo, cronograma e investimento — sem letras miúdas.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Quanto tempo leva um projeto?<span class="faq__icon" aria-hidden="true"></span></summary>
+          <p>Um MVP costuma ficar pronto entre 6 e 12 semanas. Projetos maiores são divididos em fases, com entregas funcionais ao fim de cada sprint.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>O código-fonte fica comigo?<span class="faq__icon" aria-hidden="true"></span></summary>
+          <p>Sim. Todo o código, a documentação e a propriedade intelectual são 100% seus. Você pode evoluir o produto com a gente ou com qualquer outro time.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Vocês oferecem suporte após o lançamento?<span class="faq__icon" aria-hidden="true"></span></summary>
+          <p>Sim. Temos planos de sustentação com monitoramento, correções, SLA definido e evolução contínua do produto.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Como acompanho o andamento do projeto?<span class="faq__icon" aria-hidden="true"></span></summary>
+          <p>Você tem acesso ao nosso board de tarefas, participa das demos de cada sprint e conta com um gerente de projeto dedicado.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Vocês assinam acordo de confidencialidade (NDA)?<span class="faq__icon" aria-hidden="true"></span></summary>
+          <p>Claro. Assinamos NDA antes de qualquer informação sensível ser compartilhada — sua ideia está protegida desde o primeiro contato.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO ============ -->
+  <section class="section" id="contato">
+    <div class="container">
+      <div class="contact reveal">
+        <svg class="contact__deco" aria-hidden="true"><use href="#logo-mark"/></svg>
+
+        <div class="contact__intro">
+          <span class="eyebrow">07 · Contato</span>
+          <h2>Vamos tirar sua ideia do <span class="grad">papel</span>?</h2>
+          <p>Conte um pouco sobre o seu projeto. Um especialista retorna em até 24h úteis com os próximos passos — sem compromisso.</p>
+
+          <ul class="contact__list">
+            <li><a class="contact__item" href="mailto:contato@softix.com.br"><span class="card__icon"><i data-lucide="mail"></i></span><span><small>E-mail</small><strong>contato@softix.com.br</strong></span></a></li>
+            <li><a class="contact__item" href="https://wa.me/5511999999999" target="_blank" rel="noopener"><span class="card__icon"><svg><use href="#i-whatsapp"/></svg></span><span><small>WhatsApp</small><strong>+55 (11) 99999-9999</strong></span></a></li>
+            <li><div class="contact__item"><span class="card__icon"><i data-lucide="map-pin"></i></span><span><small>Atendimento</small><strong>Remoto, em todo o Brasil</strong></span></div></li>
+          </ul>
+        </div>
+
+        <form class="form" id="contact-form" autocomplete="on">
+          <div class="field">
+            <label for="f-nome">Nome *</label>
+            <input id="f-nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">E-mail *</label>
+            <input id="f-email" name="email" type="email" placeholder="voce@empresa.com" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-empresa">Empresa</label>
+            <input id="f-empresa" name="empresa" type="text" placeholder="Nome da empresa" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="f-tel">WhatsApp</label>
+            <input id="f-tel" name="telefone" type="tel" placeholder="(11) 99999-9999" autocomplete="tel">
+          </div>
+
+          <fieldset class="field field--full">
+            <legend>Tipo de projeto</legend>
+            <div class="options">
+              <label class="opt"><input type="radio" name="tipo" value="Site / Web app" checked><span>Site / Web app</span></label>
+              <label class="opt"><input type="radio" name="tipo" value="App mobile"><span>App mobile</span></label>
+              <label class="opt"><input type="radio" name="tipo" value="Sistema / SaaS"><span>Sistema / SaaS</span></label>
+              <label class="opt"><input type="radio" name="tipo" value="IA & Automação"><span>IA &amp; Automação</span></label>
+              <label class="opt"><input type="radio" name="tipo" value="Outro"><span>Outro</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field field--full">
+            <label for="f-orc">Investimento estimado</label>
+            <select id="f-orc" name="orcamento">
+              <option>Ainda não sei</option>
+              <option>Até R$ 20 mil</option>
+              <option>R$ 20 mil – R$ 50 mil</option>
+              <option>R$ 50 mil – R$ 150 mil</option>
+              <option>Acima de R$ 150 mil</option>
+            </select>
+          </div>
+
+          <div class="field field--full">
+            <label for="f-msg">Conte sobre o projeto *</label>
+            <textarea id="f-msg" name="mensagem" rows="4" placeholder="Qual problema você quer resolver? Há prazo ou referências?" required></textarea>
+          </div>
+
+          <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="form__foot">
+            <span class="form__note"><i data-lucide="lock"></i>Seus dados estão seguros. Sem spam.</span>
+            <button class="btn btn--primary btn--lg" type="submit"><span class="btn__label">Enviar mensagem</span><i data-lucide="send"></i></button>
+          </div>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__about">
+        <a href="#top" class="brand brand--lg" aria-label="Softix — voltar ao topo">
+          <span class="brand__text"><span class="brand__name">SOFTIX</span><span class="brand__tag">Digital Technology</span></span>
+          <svg class="brand__mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+        </a>
+        <p>Engenharia de software sob medida para empresas que querem crescer com tecnologia.</p>
+        <!-- TODO: trocar pelos links reais -->
+        <div class="socials">
+          <a class="icon-btn" href="#" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+          <a class="icon-btn" href="#" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+          <a class="icon-btn" href="#" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#processo">Processo</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#servicos">Plataformas Web</a></li>
+          <li><a href="#servicos">Apps Mobile</a></li>
+          <li><a href="#servicos">Sistemas &amp; SaaS</a></li>
+          <li><a href="#servicos">IA &amp; Automação</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@softix.com.br">contato@softix.com.br</a></li>
+          <li><a href="https://wa.me/5511999999999" target="_blank" rel="noopener">+55 (11) 99999-9999</a></li>
+          <li><a href="#contato">Solicitar orçamento</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> Softix Digital Technology. Todos os direitos reservados.</span>
+      <span class="footer__made">Feito com <i data-lucide="code-xml"></i> no Brasil</span>
+    </div>
+  </div>
+  <div class="footer__giant" aria-hidden="true">SOFTIX</div>
+</footer>
+
+<a class="wa" href="https://wa.me/5511999999999" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
+  <svg aria-hidden="true"><use href="#i-whatsapp"/></svg>
+  <span class="wa__label">Fale no WhatsApp</span>
+</a>
+
+<!-- Modal de detalhes do projeto -->
+<dialog class="modal" id="project-modal" aria-labelledby="modal-title" closedby="any">
+  <button class="modal__close icon-btn" type="button" data-close aria-label="Fechar"><i data-lucide="x"></i></button>
+  <div class="modal__scroll" id="modal-body"></div>
+</dialog>
+
+</body>
+</html>
